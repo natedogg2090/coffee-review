@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  money: 1
+  admin: false
+  prep_pref: MyString
+
+two:
+  name: MyString
+  money: 1
+  admin: false
+  prep_pref: MyString
