@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origin: MyString
+  tasting_notes: MyText
+  prep: MyString
+  rating: 1
+  price: 1
+
+two:
+  origin: MyString
+  tasting_notes: MyText
+  prep: MyString
+  rating: 1
+  price: 1
