@@ -1,0 +1,15 @@
+<%= form_for @roast do |f| %>
+	<%= f.label :name, "Roast" %>
+	<%= f.text_field :name %></br>
+	<%= f.label :origin, "Origin" %>
+	<%= f.text_field :origin %></br>
+	<%= f.label :tasting_notes, "Tasting Notes" %>
+	<%= f.text_area :tasting_notes %></br>
+	<%= f.label :prep, "Suggested Preparation Method" %>
+	<%= f.text_field :prep %></br>
+	<%= f.label :price, "Price" %>
+	<%= f.text_field :price %></br>
+	</br>
+	<%= f.button("Create Roast") %>
+
+<% end %>

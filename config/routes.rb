@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :roasts, only: [:index]
+  resources :roasts, only: [:index, :new]
 end
