@@ -10,12 +10,7 @@ class RoastsController < ApplicationController
 
   def create
 
-    roast = Roast.new(
-      :name => params[:roast][:name], 
-      :origin => params[:roast][:origin], 
-      :tasting_notes => params[:roast][:tasting_notes], 
-      :prep => params[:roast][:prep], 
-      :price => params[:roast][:price])
+    roast = Roast.new(roast_params)
 
     roaster = Roaster.find_or_create_by(:name => params[:roast][:roaster])
     roast.roaster_id = roaster.id
@@ -23,6 +18,12 @@ class RoastsController < ApplicationController
     roast.save
 
     redirect_to roasts_path
+  end
+
+  private
+
+  def roast_params
+    params.require(:roast).permit(:name, :origin, :tasting_notes, :prep, :price, :roaster_id)
   end
 
 end
