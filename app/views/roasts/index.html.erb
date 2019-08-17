@@ -1,11 +1,31 @@
 <h1>All Roasts</h1>
 
-<% @roasts.each do |roast| %>
-	<p>Roaster: <%= roast.roaster.name %></p>
-	<p>Roast: <%= roast.name %></p>
-	<p>Origin: <%= roast.origin %></p>
-	<p>Tasting Notes: <%= roast.tasting_notes %></p>
-	<p>Preparation Method: <%= roast.prep %></p>
-	<p>Price: $<%= roast.price %></p>
+<table>
+	<thead>
+		<tr>
+			<th colspan="6"></th>
+		</tr>
+	</thead>
 
-<% end %>
+	<tbody>
+		<tr>
+			<td><strong>Roaster</strong></td>
+			<td><strong>Roast</strong></td>
+			<td><strong>Origin</strong></td>
+			<td><strong>Tasting Notes</strong></td>
+			<td><strong>Preparation Method</strong></td>
+			<td><strong>Price</strong></td>
+		</tr>
+		<% @roasts.each do |roast| %>
+		<tr>
+			<td><%= roast.roaster.name %></td>
+			<td><%= roast.name %></td>
+			<td><%= roast.origin %></td>
+			<td><%= roast.tasting_notes %></td>
+			<td><%= roast.prep %></td>
+			<td>$<%= roast.price %></td>
+		</tr>
+		<% end %>
+		
+	</tbody>
+</table>
