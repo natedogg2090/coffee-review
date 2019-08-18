@@ -1,0 +1,10 @@
+<%= form_for @roaster do |f| %>
+	<%= f.label :name, "Roaster" %>
+	<%= f.text_field :name %></br>
+	<%= f.label :location, "Location" %>
+	<%= f.text_field :location %></br>
+	
+	</br>
+	<%= f.button("Create Roaster") %>
+
+<% end %>
