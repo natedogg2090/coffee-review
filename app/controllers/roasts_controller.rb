@@ -24,6 +24,17 @@ class RoastsController < ApplicationController
     @roast = Roast.find_by(:id => params[:id])
   end
 
+  def edit
+    @roast = Roast.find_by(:id => params[:id])
+  end
+
+  def update
+    roast = Roast.find_by(:id => params[:id])
+    roast.update(roast_params)
+
+    redirect_to roast_path(roast)
+  end
+
   private
 
   def roast_params
