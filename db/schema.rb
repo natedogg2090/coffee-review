@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_204830) do
   end
 
   create_table "roasts", force: :cascade do |t|
+    t.string "name"
     t.string "origin"
     t.text "tasting_notes"
     t.string "preparation_method"

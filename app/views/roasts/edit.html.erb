@@ -7,8 +7,10 @@
 	<%= f.text_field :origin, placeholder: "#{@roast.origin}" %></br>
 	<%= f.label :tasting_notes, "Tasting Notes" %>
 	<%= f.text_area :tasting_notes, placeholder: "#{@roast.tasting_notes}" %></br>
-	<%= f.label :prep, "Suggested Preparation Method" %>
-	<%= f.text_field :prep, placeholder: "#{@roast.prep}" %></br>
+	<%= f.label :preparation_method, "Suggested Preparation Method" %>
+	<%= f.text_field :preparation_method, placeholder: "#{@roast.preparation_method}" %></br>
+	<%= f.label :roasted_date, "Roasted Date" %>
+	<%= f.date_select :roasted_date %></br>
 	<%= f.label :price, "Price" %>
 	<%= f.text_field :price, placeholder: "#{@roast.price}" %></br>
 
