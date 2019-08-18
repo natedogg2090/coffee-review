@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_203935) do
+ActiveRecord::Schema.define(version: 2019_08_18_204830) do
 
   create_table "roasters", force: :cascade do |t|
     t.string "name"
     t.string "location"
+  end
+
+  create_table "roasts", force: :cascade do |t|
+    t.string "origin"
+    t.text "tasting_notes"
+    t.string "preparation_method"
+    t.integer "price"
+    t.integer "inventory"
+    t.datetime "roasted_date"
+    t.integer "roaster_id"
+    t.index ["roaster_id"], name: "index_roasts_on_roaster_id"
   end
 
   create_table "users", force: :cascade do |t|

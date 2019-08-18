@@ -1,4 +1,4 @@
 class Roast < ApplicationRecord
-  belongs_to :users
+  has_many :users
   belongs_to :roaster
 end
