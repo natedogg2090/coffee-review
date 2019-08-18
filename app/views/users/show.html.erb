@@ -1,3 +1,7 @@
+<% if @user.admin %>
+	<p><strong>ADMIN</strong></p>
+<% end %>
+
 <p><%= @user.name %></p>
 <p>$<%= @user.money %></p>
 <p><%= @user.prep_pref %></p>
