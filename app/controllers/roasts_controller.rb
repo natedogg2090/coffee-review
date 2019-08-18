@@ -10,6 +10,8 @@ class RoastsController < ApplicationController
 
   def create
 
+    user = User.find_by(:id => session[:user_id])
+
     roast = Roast.new(roast_params)
 
     roaster = Roaster.find_or_create_by(:name => params[:roast][:roaster])
