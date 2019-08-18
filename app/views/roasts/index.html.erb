@@ -3,7 +3,7 @@
 <table>
 	<thead>
 		<tr>
-			<th colspan="6"></th>
+			<th colspan="7"></th>
 		</tr>
 	</thead>
 
@@ -15,15 +15,17 @@
 			<td><strong>Tasting Notes</strong></td>
 			<td><strong>Preparation Method</strong></td>
 			<td><strong>Price</strong></td>
+			<td><strong>Roast Details</strong></td>
 		</tr>
 		<% @roasts.each do |roast| %>
 		<tr>
 			<td><%= roast.roaster.name %></td>
-			<td><a href="<%= roast_path(roast) %>"><%= roast.name %></a></td>
+			<td><%= roast.name %></td>
 			<td><%= roast.origin %></td>
 			<td><%= roast.tasting_notes %></td>
 			<td><%= roast.prep %></td>
 			<td>$<%= roast.price %></td>
+			<td><a href="<%= roast_path(roast) %>">Details</td>
 		</tr>
 		<% end %>
 		
