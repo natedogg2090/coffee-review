@@ -40,7 +40,7 @@ class RoastsController < ApplicationController
   private
 
   def roast_params
-    params.require(:roast).permit(:name, :origin, :tasting_notes, :prep, :price, :roaster_id)
+    params.require(:roast).permit(:name, :origin, :tasting_notes, :preparation_method, :price, :inventory, :roasted_date, :roaster_id)
   end
 
 end
