@@ -1,0 +1,11 @@
+<%= form_for @user do |f| %>
+	<%= f.label :name, "Name" %>
+	<%= f.text_field :name %></br>
+	<%= f.label :money, "Money" %>
+	<%= f.text_field :money %></br>
+	<%= f.label :prep_pref, "Preferred Preparation Method" %>
+	<%= f.text_field :prep_pref %></br>
+	</br>
+	<%= f.button("Create User") %>
+
+<% end %>
