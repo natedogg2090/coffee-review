@@ -18,15 +18,21 @@ class RoastersController < ApplicationController
 
   def update
     roaster = Roaster.find_by(:id => params[:id])
-    roaster.update(:name => params[:roaster][:name], :location => params[:roaster][:location])
+    roaster.update(roasters_params)
 
     redirect_to roaster_path(roaster)
   end
 
   def create
-    roaster = Roaster.new(:name => params[:roaster][:name], :location => params[:roaster][:location])
+    roaster = Roaster.new(roasters_params)
     roaster.save
 
     redirect_to roaster_path(roaster)
+  end
+
+  private
+
+  def roasters_params
+    params.require(:roaster).permit(:name, :location)
   end
 end
