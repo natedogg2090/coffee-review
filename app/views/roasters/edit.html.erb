@@ -1,1 +1,12 @@
-edit.html.erb
+<h1>Editing Roaster</h1>
+
+<%= form_for @roaster do |f| %>
+	<%= f.label :name, "Roaster" %>
+	<%= f.text_field :name, placeholder: "#{@roaster.name}" %></br>
+	<%= f.label :location, "Location" %>
+	<%= f.text_field :location, placeholder: "#{@roaster.location}" %></br>
+	
+	</br>
+	<%= f.button("Update Roaster") %>
+
+<% end %>
