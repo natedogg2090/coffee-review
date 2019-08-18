@@ -7,4 +7,8 @@ class RoastersController < ApplicationController
   def show
     @roaster = Roaster.find_by(:id => params[:id])
   end
+
+  def edit
+    @roaster = Roaster.find_by(:id => params[:id])
+  end
 end
