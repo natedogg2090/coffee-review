@@ -20,6 +20,10 @@ class RoastsController < ApplicationController
     redirect_to roasts_path
   end
 
+  def show
+    @roast = Roast.find_by(:id => params[:id])
+  end
+
   private
 
   def roast_params
