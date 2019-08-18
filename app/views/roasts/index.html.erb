@@ -19,7 +19,7 @@
 		<% @roasts.each do |roast| %>
 		<tr>
 			<td><%= roast.roaster.name %></td>
-			<td><%= roast.name %></td>
+			<td><a href="<%= roast_path(roast) %>"><%= roast.name %></a></td>
 			<td><%= roast.origin %></td>
 			<td><%= roast.tasting_notes %></td>
 			<td><%= roast.prep %></td>
