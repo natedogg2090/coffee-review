@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 2019_08_18_203935) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "password_digest"
+    t.integer "money"
+    t.boolean "admin", default: false
   end
 
 end
