@@ -1,9 +1,19 @@
-<p><%= @roast.roaster.name %></p>
-<p><%= @roast.name %></p>
-<p><%= @roast.origin %></p>
-<p><%= @roast.tasting_notes %></p>
-<p><%= @roast.prep %></p>
-<p><%= @roast.price %></p>
+    <!-- content -->
+<div class="container" role="main">
+  <p id="notice"></p>
+
+  <div>
+
+    <div class="info">
+      <p><strong>Roaster:</strong> <%= @roast.roaster.name %></p>
+      <p><strong>Roast:</strong> <%= @roast.name %></p>
+      <p><strong>Origin:</strong> <%= @roast.origin %></p>
+      <p><strong>Tasting Notes:</strong> <%= @roast.tasting_notes %></p>
+      <p><strong>Suggested Preparation Method:</strong> <%= @roast.prep %></p>
+      <p><strong>Price:</strong> $<%= @roast.price %></p>
+    </div>
+  </div>
+</div>
 
 <a href="<%= edit_roast_path(@roast) %>">Edit</a>
 <a href="<%= roasts_path %>">Back</a>
