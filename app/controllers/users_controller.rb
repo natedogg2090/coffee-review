@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:index, :new, :show]
+
+  def index
+    if logged_in?
+      @user = User.find_by(:id => session[:user_id])
+    end
+  end
 
   def new
     @user = User.new

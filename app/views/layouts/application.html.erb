@@ -17,6 +17,7 @@
         <a href="<%= new_user_path %>">Sign Up</a>
         <a href="<%= login_path %>">Login</a>
       <% else %>
+        <a href="<%= user_path(@user) %>"><%= @user.name %>'s Profile</a>
         <a href="<%= logout_path %>">Logout</a>
       <% end %>
     </div>
