@@ -1,7 +1,11 @@
 class RoastsController < ApplicationController
 
   def index
-    @roasts = Roast.all
+    if logged_in?
+      @roasts = Roast.all
+    else
+      redirect_to root_path
+    end
   end
 
   def new
