@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 2019_08_23_003501) do
 
   create_table "purchases", force: :cascade do |t|
-    t.integer "user_id_id"
-    t.integer "roaster_id_id"
-    t.index ["roaster_id_id"], name: "index_purchases_on_roaster_id_id"
-    t.index ["user_id_id"], name: "index_purchases_on_user_id_id"
+    t.integer "user_id"
+    t.integer "roast_id"
+    t.index ["roast_id"], name: "index_purchases_on_roast_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "roasters", force: :cascade do |t|

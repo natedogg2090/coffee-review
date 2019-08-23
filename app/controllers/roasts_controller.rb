@@ -23,6 +23,8 @@ class RoastsController < ApplicationController
 
   def show
     @roast = Roast.find_by(:id => params[:id])
+    @user = User.find_by(:id => session[:user_id])
+    @purchase = Purchase.new(:user_id => @user.id, :roast_id => @roast.id)
   end
 
   def edit
