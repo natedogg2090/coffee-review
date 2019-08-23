@@ -26,9 +26,18 @@ class RoastsController < ApplicationController
   end
 
   def show
-    @roast = Roast.find_by(:id => params[:id])
-    @user = User.find_by(:id => session[:user_id])
-    @purchase = Purchase.new(:user_id => @user.id, :roast_id => @roast.id)
+    if logged_in?
+      @roast = Roast.find_by(:id => params[:id])
+      @user = User.find_by(:id => session[:user_id])
+      if !@user.nil? && !@roast.nil?
+        @purchase = Purchase.new(:user_id => @user.id, :roast_id => @roast.id)
+      else
+        render edit_roast_path(@roast)
+      end
+    else
+      redirect_to root_path
+    end
+
   end
 
   def edit
