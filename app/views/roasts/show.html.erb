@@ -14,8 +14,8 @@
       <p><strong>Price:</strong> $<%= @roast.price %></p>
 
       <%= form_tag(purchases_path) do %>
+      <%= hidden_field(:purchase, :user_id) %>
       <%= hidden_field(:purchase, :roast_id) %>
-      <%= hidden_field(:purchase, :roaster_id) %>
       
       <input type="submit" value="Buy Now">
       <% end %>
