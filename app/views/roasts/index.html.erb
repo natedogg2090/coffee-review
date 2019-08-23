@@ -19,7 +19,7 @@
 		<tr>
 			<td><%= roast.name %></td>
 			<td><%= roast.origin %></td>
-			<td><%= roast.roaster.name %></td>
+			<td><a href="<%= roaster_path(roast.roaster) %>"><%= roast.roaster.name %></td>
 			<td>$<%= roast.price %></td>
 			<td><a href="<%= roast_path(roast) %>">Details</td>
 		</tr>
