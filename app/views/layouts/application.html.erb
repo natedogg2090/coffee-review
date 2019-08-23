@@ -11,7 +11,7 @@
 
   <body>
     <div class="topnav">
-      <a class="active" href="<%= roasts_path %>">Home</a>
+      <a class="active" href="<%= root_path %>">Home</a>
       
       <% if !session[:user_id].present? %>
         <a href="<%= new_user_path %>">Sign Up</a>
