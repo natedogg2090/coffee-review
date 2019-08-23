@@ -7,7 +7,7 @@ class Purchase < ApplicationRecord
     user = User.find_by(:id => self.user_id)
 
     if user.money < roast.price
-      "Sorry. You do not have enough money to purchase this #{roast.name}."
+      "Sorry. You do not have enough money to purchase #{roast.name}."
     else
       rem_money = user.money - roast.price
       user.update(:money => rem_money)
