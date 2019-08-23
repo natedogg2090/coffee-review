@@ -12,6 +12,13 @@
       <p><strong>Suggested Preparation Method:</strong> <%= @roast.preparation_method %></p>
       <p><strong>Roasted Date:</strong> <%= @roast.roasted_date %></p>
       <p><strong>Price:</strong> $<%= @roast.price %></p>
+
+      <%= form_tag(purchases_path) do %>
+      <%= hidden_field(:purchase, :roast_id) %>
+      <%= hidden_field(:purchase, :roaster_id) %>
+      
+      <input type="submit" value="Buy Now">
+      <% end %>
     </div>
   </div>
 </div>
