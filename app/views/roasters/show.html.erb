@@ -1,5 +1,7 @@
 <p>Roaster: <%= @roaster.name %></p>
 <p>Location: <%= @roaster.location %></p>
 
-<a href="<%= edit_roaster_path(@roaster) %>">Edit</a>
+<% if @user.admin? %>
+	<a href="<%= edit_roaster_path(@roaster) %>">Edit</a>
+<% end %>
 <a href="<%= roasters_path %>">Back</a>

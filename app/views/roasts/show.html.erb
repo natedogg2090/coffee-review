@@ -23,5 +23,8 @@
   </div>
 </div>
 
-<a href="<%= edit_roast_path(@roast) %>">Edit</a>
+<% if @user.admin? %>
+  <a href="<%= edit_roast_path(@roast) %>">Edit</a>
+<% end %>
+
 <a href="<%= roasts_path %>">Back</a>
