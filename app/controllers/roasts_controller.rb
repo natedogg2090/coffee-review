@@ -7,6 +7,7 @@ class RoastsController < ApplicationController
 
   def new
     @roast = Roast.new
+    @user = find_user(session[:user_id])
   end
 
   def create
@@ -48,10 +49,6 @@ class RoastsController < ApplicationController
 
   def roast_params
     params.require(:roast).permit(:name, :origin, :tasting_notes, :preparation_method, :price, :inventory, :roasted_date, :roaster_id)
-  end
-
-  def find_user(id)
-    User.find_by(:id => id)
   end
 
 end

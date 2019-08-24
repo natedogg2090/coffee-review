@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
   def logged_in?
     session[:user_id]
   end
+
+  def find_user(id)
+    User.find_by(:id => id)
+  end
+  
 end

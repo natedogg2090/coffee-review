@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:index]
+  skip_before_action :require_login, only: [:index, :new]
 
   def index
-    @user = User.find_by(:id => session[:user_id])
+    @user = find_user(session[:user_id])
   end
 
   def new
@@ -11,13 +11,15 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
-    user.save
+    if user.save
+      session[:user_id] = user.id
+    end
 
     redirect_to user_path(user)
   end
 
   def show
-    @user = User.find_by(:id => params[:id])
+    @user = find_user(session[:user_id])
   end
 
   private
@@ -25,4 +27,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :password, :money, :admin)
   end
+
 end
