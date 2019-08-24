@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:index, :new]
+  skip_before_action :require_login, only: [:index, :new, :create]
 
   def index
     @user = find_user(session[:user_id])
