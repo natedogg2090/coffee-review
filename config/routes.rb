@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :roasts, only: [:index, :new, :create, :show, :edit, :update]
-  resources :roasters, only: [:index, :show, :edit, :update, :new, :create]
+  resources :roasters, only: [:index, :show, :edit, :update, :new, :create] do
+    resources :roasts, only: [:index]
+  end
   resources :users, only: [:new, :create, :show]
   resources :purchases, only: [:create]
 
