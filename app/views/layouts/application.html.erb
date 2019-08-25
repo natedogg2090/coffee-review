@@ -16,6 +16,7 @@
       <% if !session[:user_id].present? %>
         <a href="<%= new_user_path %>">Sign Up</a>
         <a href="<%= login_path %>">Login</a>
+        <%= link_to('Log in with Facebook!', '/auth/facebook') %>
       <% else %>
         <a href="<%= roasts_path %>">Roasts</a>
         <a href="<%= roasters_path %>">Roasters</a>

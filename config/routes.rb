@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :purchases, only: [:create]
 
   get 'login' => 'sessions#new'
+  get '/auth/facebook/callback' => 'sessions#create'
   post 'sessions' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
 
