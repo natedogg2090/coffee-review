@@ -12,7 +12,11 @@
 	<%= f.label :roasted_date, "Roasted Date" %>
 	<%= f.date_select :roasted_date %></br>
 	<%= f.label :roaster, "Roaster" %>
-	<%= f.text_field :roaster %></br>
+	<% if !@roast.roaster_id.nil? %>
+		<%= f.text_field :roaster, value: "#{@roast.roaster.name}" %></br>
+	<% else %>
+		<%= f.text_field :roaster %></br>
+	<% end %>
 	</br>
 	<%= f.button("Create Roast") %>
 

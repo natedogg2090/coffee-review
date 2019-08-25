@@ -2,7 +2,7 @@ class RoastsController < ApplicationController
 
   def index
     @user = find_user(session[:user_id])
-    
+
     if params[:roaster_id]
       @roasts = Roaster.find_by(:id => params[:roaster_id]).roasts
     else
@@ -11,7 +11,11 @@ class RoastsController < ApplicationController
   end
 
   def new
-    @roast = Roast.new
+    if params[:roaster_id]
+      @roast = Roast.new(:roaster_id => params[:roaster_id])
+    else
+      @roast = Roast.new
+    end
     @user = find_user(session[:user_id])
   end
 
