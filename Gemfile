@@ -37,7 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'pry'
-gem 'omniauth'
+gem 'omniauth', '<= 1.9.0'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 
