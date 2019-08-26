@@ -1,4 +1,14 @@
-<%= form_for @roast do |f| %>
+<% if @roast.errors.any? %>
+	<h3>Errors:</h3>
+    <ul>
+    	<% @roast.errors.full_messages.each do |message| %>
+  			<li><%= message %></li>
+		<% end %>
+    </ul>
+
+<% end %>
+
+<%= form_for(@roast) do |f| %>
 	<%= f.label :name, "Roast" %>
 	<%= f.text_field :name %></br>
 	<%= f.label :origin, "Origin" %>

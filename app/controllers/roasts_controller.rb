@@ -20,16 +20,18 @@ class RoastsController < ApplicationController
   end
 
   def create
-    user = find_user(session[:user_id])
+    @user = find_user(session[:user_id])
 
-    roast = Roast.new(roast_params)
+    @roast = Roast.new(roast_params)
 
     roaster = Roaster.find_or_create_by(:name => params[:roast][:roaster])
-    roast.roaster_id = roaster.id
+    @roast.roaster_id = roaster.id
 
-    roast.save
-
-    redirect_to roasts_path
+    if !@roast.save
+      render 'new'
+    else
+      redirect_to roasts_path
+    end
   end
 
   def show
