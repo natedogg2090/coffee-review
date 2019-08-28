@@ -5,4 +5,6 @@ class Roaster < ApplicationRecord
   validates :name, presence: {message: "can't be blank"}
   validates :location, allow_blank: true
 
+  
+
 end
