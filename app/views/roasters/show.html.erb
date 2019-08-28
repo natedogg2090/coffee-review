@@ -1,6 +1,14 @@
 <p>Roaster: <%= @roaster.name %></p>
 <p>Location: <%= @roaster.location %></p>
 
+<h2>Roasts</h2>
+<ul>
+	<% @roaster.roasts.each do |roast| %>
+		<li><%= link_to("#{roast.name}", roast_path(roast)) %></li>	
+	<% end %>
+</ul>
+
+
 <% if @user.admin? %>
 	<a href="<%= edit_roaster_path(@roaster) %>">Edit</a>
 <% end %>
