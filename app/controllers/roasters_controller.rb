@@ -28,10 +28,14 @@ class RoastersController < ApplicationController
   end
 
   def create
-    roaster = Roaster.new(roasters_params)
-    roaster.save
-
-    redirect_to roaster_path(roaster)
+    @user = find_user(session[:user_id])
+    @roaster = Roaster.new(roasters_params)
+    
+    if !@roaster.save
+      render 'new'
+    else
+      redirect_to roaster_path(@roaster)
+    end
   end
 
   private
