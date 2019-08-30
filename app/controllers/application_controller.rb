@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
   def find_user(id)
     User.find_by(:id => id)
   end
+
+  def find_roaster(id)
+    Roaster.find_by(:id => id)
+  end
 end
