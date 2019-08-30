@@ -14,3 +14,9 @@
 <a href="<%= roasts_path %>">See Roasts</a>
 
 <h2>Purchased Roasts</h2>
+
+<ul>
+	<% @purchases.each do |p| %>
+		<li><%= p.roast.name %></li>
+	<% end %>	
+</ul>

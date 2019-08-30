@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @user = find_user(session[:user_id])
+    @purchases = Purchase.purchased_by(@user)
   end
 
   private

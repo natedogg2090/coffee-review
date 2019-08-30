@@ -2,6 +2,8 @@ class Purchase < ApplicationRecord
   belongs_to :user
   belongs_to :roast
 
+  scope :purchased_by, -> (user) {where("user_id == ?", user.id)}
+
   def buy_now
     roast = Roast.find_by(:id => self.roast_id)
     user = User.find_by(:id => self.user_id)
