@@ -40,7 +40,7 @@ gem 'pry'
 gem 'omniauth', '<= 1.9.0'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
-gem "omniauth-rails_csrf_protection"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
