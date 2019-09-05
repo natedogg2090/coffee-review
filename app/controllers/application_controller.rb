@@ -11,11 +11,4 @@ class ApplicationController < ActionController::Base
     session[:user_id]
   end
 
-  def find_user(id)
-    User.find_by(:id => id)
-  end
-
-  def find_roaster(id)
-    Roaster.find_by(:id => id)
-  end
 end

@@ -1,6 +1,6 @@
 class RoastsController < ApplicationController
   before_action :set_user
-  before_action :set_roast, only: [:show, :edit]
+  before_action :set_roast, only: [:show, :edit, :update]
   skip_before_action :set_user, only: [:update]
 
   def index
@@ -42,10 +42,9 @@ class RoastsController < ApplicationController
   end
 
   def update
-    roast = Roast.find_by(:id => params[:id])
-    roast.update(roast_params)
+    @roast.update(roast_params)
 
-    redirect_to roast_path(roast)
+    redirect_to roast_path(@roast)
   end
 
   private
@@ -55,7 +54,7 @@ class RoastsController < ApplicationController
   end
 
   def set_user
-    @user = find_user(session[:user_id])
+    @user = User.find_by(:id => session[:user_id])
   end
 
   def set_roast

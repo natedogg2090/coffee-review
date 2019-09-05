@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = find_user(session[:user_id])
+    @user = User.find_by(:id => session[:user_id])
   end
 
 end

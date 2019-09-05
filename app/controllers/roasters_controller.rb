@@ -1,6 +1,6 @@
 class RoastersController < ApplicationController
   before_action :set_user
-  before_action :set_roaster, only: [:show, :edit]
+  before_action :set_roaster, only: [:show, :edit, :update]
 
   def index
     @roasters = Roaster.all
@@ -17,10 +17,9 @@ class RoastersController < ApplicationController
   end
 
   def update
-    roaster = find_roaster(params[:id])
-    roaster.update(roasters_params)
+    @roaster.update(roasters_params)
 
-    redirect_to roaster_path(roaster)
+    redirect_to roaster_path(@roaster)
   end
 
   def create
@@ -40,11 +39,11 @@ class RoastersController < ApplicationController
   end
 
   def set_user
-    @user = find_user(session[:user_id])
+    @user = User.find_by(:id => session[:user_id])
   end
 
   def set_roaster
-    @roaster = find_roaster(params[:id])
+    @roaster = Roaster.find_by(:id => params[:id])
   end
 
 end
