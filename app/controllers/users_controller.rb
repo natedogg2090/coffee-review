@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:index, :new, :create]
+  before_action :set_user, only: [:index, :show]
 
   def index
-    @user = find_user(session[:user_id])
   end
 
   def new
@@ -19,7 +19,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = find_user(session[:user_id])
     @purchases = Purchase.purchased_by(@user)
   end
 
@@ -27,6 +26,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :password, :money, :admin)
+  end
+
+  def set_user
+    @user = find_user(session[:user_id])
   end
 
 end
