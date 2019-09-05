@@ -1,7 +1,9 @@
 class RoastsController < ApplicationController
+  before_action :set_user
+  before_action :set_roast, only: [:show, :edit]
+  skip_before_action :set_user, only: [:update]
 
   def index
-    @user = find_user(session[:user_id])
     @roasts = Roast.all
   end
 
@@ -11,11 +13,9 @@ class RoastsController < ApplicationController
     else
       @roast = Roast.new
     end
-    @user = find_user(session[:user_id])
   end
 
   def create
-    @user = find_user(session[:user_id])
 
     @roast = Roast.new(roast_params)
 
@@ -30,8 +30,6 @@ class RoastsController < ApplicationController
   end
 
   def show
-    @roast = Roast.find_by(:id => params[:id])
-    @user = find_user(session[:user_id])
     if !@user.nil? && !@roast.nil?
       @purchase = Purchase.new(:user_id => @user.id, :roast_id => @roast.id)
     else
@@ -41,7 +39,6 @@ class RoastsController < ApplicationController
   end
 
   def edit
-    @roast = Roast.find_by(:id => params[:id])
   end
 
   def update
@@ -55,6 +52,14 @@ class RoastsController < ApplicationController
 
   def roast_params
     params.require(:roast).permit(:name, :origin, :tasting_notes, :preparation_method, :price, :roasted_date, :roaster_id)
+  end
+
+  def set_user
+    @user = find_user(session[:user_id])
+  end
+
+  def set_roast
+    @roast = Roast.find_by(:id => params[:id])
   end
 
 end
