@@ -1,23 +1,19 @@
 class RoastersController < ApplicationController
+  before_action :set_user
+  before_action :set_roaster, only: [:show, :edit]
 
   def index
     @roasters = Roaster.all
-    @user = find_user(session[:user_id])
   end
 
   def new
     @roaster = Roaster.new
-    @user = find_user(session[:user_id])
   end
 
   def show
-    @roaster = find_roaster(params[:id])
-    @user = find_user(session[:user_id])
   end
 
   def edit
-    @roaster = find_roaster(params[:id])
-    @user = find_user(session[:user_id])
   end
 
   def update
@@ -28,7 +24,6 @@ class RoastersController < ApplicationController
   end
 
   def create
-    @user = find_user(session[:user_id])
     @roaster = Roaster.new(roasters_params)
     
     if !@roaster.save
@@ -42,6 +37,14 @@ class RoastersController < ApplicationController
 
   def roasters_params
     params.require(:roaster).permit(:name, :location)
+  end
+
+  def set_user
+    @user = find_user(session[:user_id])
+  end
+
+  def set_roaster
+    @roaster = find_roaster(params[:id])
   end
 
 end
