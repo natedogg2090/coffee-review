@@ -1,6 +1,7 @@
 class Purchase < ApplicationRecord
   belongs_to :user
   belongs_to :roast
+  validates :payment_type, presence: true
 
   scope :purchased_by, -> (user) {where("user_id == ?", user.id)}
 
@@ -16,4 +17,5 @@ class Purchase < ApplicationRecord
       "Thanks for purchasing the #{roast.name} roast!"
     end
   end
+
 end
