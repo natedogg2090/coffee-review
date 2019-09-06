@@ -1,4 +1,4 @@
-# coffee_review
+# coffee-review
 
 This is a Rails application for coffee fanatics.
 
