@@ -1,6 +1,5 @@
 class RoastsController < ApplicationController
-  before_action :set_user
-  before_action :set_roast, only: [:show, :edit, :update]
+  skip_before_action :set_roast, except: [:show, :edit, :update]
   skip_before_action :set_user, only: [:update]
 
   def index
@@ -51,14 +50,6 @@ class RoastsController < ApplicationController
 
   def roast_params
     params.require(:roast).permit(:name, :origin, :tasting_notes, :preparation_method, :price, :roasted_date, :roaster_id)
-  end
-
-  def set_user
-    @user = User.find_by(:id => session[:user_id])
-  end
-
-  def set_roast
-    @roast = Roast.find_by(:id => params[:id])
   end
 
 end

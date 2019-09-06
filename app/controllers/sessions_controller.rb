@@ -5,15 +5,26 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if auth_hash = request.env["omniauth.auth"]
-      user = User.find_or_create_by_omniauth(auth_hash)
+
+    user = User.find_by(:name => params[:user_name])
+
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to user_path(user)
     else
-      user = User.find_by(:name => params[:user_name])
+      render 'new'
+    end
+  end
+
+  def facebook_login
+    if auth_hash.present?
+      user = User.find_or_create_by_omniauth(auth_hash)
+      session[:user_id] = user.id
+      redirect_to user_path(user)
+    else
+      render 'new'
     end
 
-    session[:user_id] = user.id
-    
-    redirect_to user_path(user)
   end
 
   def destroy
@@ -24,7 +35,8 @@ class SessionsController < ApplicationController
 
   private
 
-  def auth
+  def auth_hash
     request.env['omniauth.auth']
   end
+
 end
