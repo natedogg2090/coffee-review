@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_003501) do
+ActiveRecord::Schema.define(version: 2019_09_06_162713) do
 
   create_table "purchases", force: :cascade do |t|
     t.integer "user_id"
     t.integer "roast_id"
+    t.string "payment_type"
     t.index ["roast_id"], name: "index_purchases_on_roast_id"
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end

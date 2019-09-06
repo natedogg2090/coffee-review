@@ -13,10 +13,12 @@
       <p><strong>Roasted Date:</strong> <%= @roast.roasted_date %></p>
       <p><strong>Price:</strong> $<%= @roast.price %></p>
 
-      <%= form_tag(purchases_path) do %>
-      <%= hidden_field(:purchase, :user_id) %>
-      <%= hidden_field(:purchase, :roast_id) %>
-      
+      <%= form_for(@purchase) do |f|%>
+      <%= f.hidden_field(:user_id) %>
+      <%= f.hidden_field(:roast_id) %>
+      <%= f.label :payment_type, "Payment Type" %><br>
+      <%= f.text_field :payment_type, placeholder: "Enter Cash or Card" %><br>
+      <br>
       <input type="submit" value="Buy Now">
       <% end %>
     </div>
