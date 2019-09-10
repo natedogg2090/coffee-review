@@ -17,7 +17,8 @@
       <%= f.hidden_field(:user_id) %>
       <%= f.hidden_field(:roast_id) %>
       <%= f.label :payment_type, "Payment Type" %><br>
-      <%= f.text_field :payment_type, placeholder: "Enter Cash or Card" %><br>
+      <%= f.radio_button(:payment_type, "Cash") %>Cash<br>
+      <%= f.radio_button(:payment_type, "Card") %>Card<br>
       <br>
       <input type="submit" value="Buy Now">
       <% end %>
