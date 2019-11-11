@@ -1,6 +1,8 @@
 class Roast < ApplicationRecord
-  has_many :users
+  has_many :purchases
+  has_many :users, through: :purchases
   belongs_to :roaster
+  
 
   validates :name, :origin, :tasting_notes, :preparation_method, :price, presence: {message: "cannot be blank."}
   validate :date_not_in_future

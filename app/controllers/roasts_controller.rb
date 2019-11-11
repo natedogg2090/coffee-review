@@ -3,7 +3,18 @@ class RoastsController < ApplicationController
   skip_before_action :set_user, only: [:update]
 
   def index
-    @roasts = Roast.all
+  
+    if params[:user_id]
+      @roasts = @user.roasts
+    elsif params[:roaster_id]
+      @roaster = Roaster.find_by(:id => params[:roaster_id])
+      @roasts = @roaster.roasts
+    else
+      @roasts = Roast.all  
+    end
+    
+
+    
   end
 
   def new

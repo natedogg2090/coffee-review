@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :roasts
+  has_many :purchases
+  has_many :roasts, through: :purchases
   has_many :roasters, through: :roasts
   has_secure_password
   validates :name, :password, presence: {message: "cannot be blank."}, :on => :create

@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resources :roasters, only: [:index, :show, :edit, :update, :new, :create] do
     resources :roasts, only: [:index, :show, :new]
   end
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show] do
+    resources :roasts, only: [:index]
+  end
+  
   resources :purchases, only: [:create]
 
   get 'login' => 'sessions#new'
@@ -13,3 +16,6 @@ Rails.application.routes.draw do
 
   root 'users#index'
 end
+
+
+# Roasts#index => /users/:id/roasts
