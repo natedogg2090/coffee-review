@@ -40,6 +40,7 @@ gem 'pry'
 gem 'omniauth', '<= 1.9.0'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem 'nokogiri', '>= 1.10.8'
 
 
 group :development, :test do
