@@ -128,7 +128,7 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (4.0.3)
-    puma (4.3.3)
+    puma (4.3.11)
       nio4r (~> 2.0)
     rack (2.2.2)
     rack-test (1.1.0)
@@ -228,7 +228,7 @@ DEPENDENCIES
   omniauth (<= 1.9.0)
   omniauth-facebook
   pry
-  puma (~> 4.3.1)
+  puma (~> 4.3.11)
   rails (~> 5.2.3)
   sass-rails (~> 5.0)
   selenium-webdriver
